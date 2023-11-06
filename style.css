@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+html{
+    --primaria: #10458B;
+    --secundaria: #90E9D1;
+    --confirmar: #78C75C;
+    --cancelar: #D63E35;
+    --cinza: #DADCDB;
+}
+body{
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    background-image: linear-gradient(45deg, var(--primaria) -30%, var(--cinza));
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+}
+.geral main form a{
+    text-decoration: none;
+    color: var(--primaria);
+}
+.geral main form a:hover{
+    text-decoration: underline;
+}
+main{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+    font-size: small;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+header{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: white;
+    font-size: small;
+    height: 100px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: 0.5s;
+}
+header article {
+    width: 50%;
+    max-height: 100px;
+}
+header article img{
+    width: 300px;
+}
+.desktop{
+    width: 50%;
+    height: 100%;
+}
+#menuItens{
+    display: flex;
+    justify-content: end;
+    height: 100%;
+}
+.desktop li{
+    height: 100%;
+    padding-left: 40px;
+    padding-right: 40px;
+    line-height: 90px;
+    text-align: center;
+    list-style: none;
+    border-left: 1px solid black;
+    color: black;
+    font-weight: 600;
+}
+.desktop a{
+    text-decoration: none;
+}
+.desktop a.estado li{
+    color: white;
+    background-color: var(--primaria);
+}
+.desktop a li:hover{
+    background-color: var(--secundaria);
+    text-decoration: underline black;
+}
+.desktop a.estado li:hover{
+    background-color: var(--primaria);
+    text-decoration: underline;
+}
+main h1{
+    font-size: 20px;
+}
+main form{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    padding-left: 20px;
+    margin-left: 50px;
+}
+#redefinicao{
+    text-align: right;
+}
+main form input{
+    border-radius: 10px;
+    height: 20px;
+    margin-top: 5px;
+    border: none;
+    background-color: var(--cinza);
+    padding: 10px;
+}
+main form input[type="submit"]{
+    background-color: var(--confirmar);
+    border-radius: 30px;
+    text-align: center;
+    width: 40%;
+    height: 10%;
+    margin: 10px auto 0px;
+    border: 2px solid var(--confirmar);
+}
+main form input[type="submit"]:hover{
+    cursor: pointer;
+    background-color: var(--primaria);
+    color: white;
+}
+main article{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+main article img{
+    width: 50%;
+}
+.geral{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+}
+.btnMenu{
+    display: none;
+}
+.phone{
+    margin-top: 0px;
+    height: 0px;
+    transition: 0.5s;
+    background-color: var(--cinza);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.closed{
+    display: flex;
+}
+@media screen and (max-width: 1800px){
+    header article img{
+        width: 20vw;
+    }
+}
+@media screen and (max-width: 800px) {
+    main{
+        flex-direction: column;
+        width: 80%;
+        border-radius: 30px;
+    }
+    main article{
+        width: 100%;
+        justify-content: center;
+        padding: 30px;
+        padding-bottom: 0;
+    }
+    main article img{
+        width: 100%;
+    }
+    .geral{
+        justify-content: center;
+    }
+    main h1{
+        margin-top: 0;
+    }
+    main form{
+        margin-left: 0;
+    }
+    header article img{
+        width: 40vw;
+    }
+    .desktop{
+        height: 0px;
+    }
+    .open{
+        height: 200px;
+    }
+    .btnMenu{
+        display: flex;
+        justify-content: end;
+        width: 50%;
+    }
+    .btnMenu button{
+        background-color: transparent;
+        border: none;
+        border-radius: 10px;
+    }
+    .btnMenu button:hover{
+        cursor: pointer;
+        border: 1px solid;
+    }
+    #menu{
+        width: 100%;
+    }
+    #menuItens{
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s;
+    }
+    #menuItens a{
+        height: 50%;
+        width: 100%;
+        text-align: center;
+        line-height: 100px;
+        text-decoration: none;
+        color: black;
+        font-weight: 600;
+    }
+    #menuItens a.estado{
+        background-color: var(--primaria);
+        color: white;
+    }
+    #menuItens a:hover{
+        text-decoration: underline;
+        background-color: var(--secundaria);
+    }
+    #menuItens a.estado:hover{
+        background-color: var(--primaria);
+    }
+    .closed{
+        display: none !important;
+    }
+    .headerOpen{
+        height: 425px;
+    }
+}
