@@ -7,17 +7,23 @@
     <title>Login - Fortes Engenharia</title>
 </head>
 <body class="geral">
-    <main>
+    <main class="loginMain">
         <article>
             <img src="https://fortes.ind.br/wp-content/uploads/2022/08/FORTES_LOGOMARCA_moldura-e1660776738611.png" alt="Fortes Engenharia">
         </article>
-        <form>
+        <form action="/authLogin" method="post">
             <h1>Login</h1>
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Senha">
+            <input name="id" id="id" type="text" required placeholder="ID">
+            <input name="senha" id="senha" type="password" required placeholder="Senha">
             <a href="/redefinicao" id="redefinicao">Esqueceu sua senha?</a>
             <input type="submit">
             <p>Não tem uma conta? <a href="/registro">Criar conta</a></p>
+            {{#if erro}}
+                <h4 class="erro">O ID ou a senha inserida estão incorretos</h4>
+            {{/if}}
+            {{#if erro1}}
+                <h4 class="erro">Todos os campos devem ser preenchidos</h4>
+            {{/if}}
         </form>
     </main>
 </body>

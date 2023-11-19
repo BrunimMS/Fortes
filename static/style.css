@@ -21,13 +21,82 @@ body{
 .geral main form a:hover{
     text-decoration: underline;
 }
-main{
+.loginMain{
     display: flex;
     align-items: center;
     width: 100%;
     background-color: white;
     font-size: small;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.divPedido{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    justify-content: center;
+    font-size: small;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 30px;
+    padding: 15px;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.divPedidoTodos{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    justify-content: center;
+    font-size: small;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 30px;
+    padding: 15px;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.mainPedidos{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.divPedidos{
+    display: flex;
+    width: 80%;
+    height: 55vh;
+    justify-content: center;
+    overflow-y: auto;
+}
+.divPedido .texto{
+    margin-left: 20px;
+}
+.divPedidosTodos{
+    display: flex;
+    width: 80%;
+    height: 55vh;
+    flex-direction: row;
+    justify-content: center;
+    overflow-y: auto;
+    flex-wrap: wrap;
+}
+.divPedidoTodos .texto{
+    margin-left: 20px;
+}
+.qrcode img{
+    width: 100px;
+}
+.novoPedido{
+    background-color: #10458B;
+    text-decoration: none;
+    color: white;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 20px;
+    margin-top: 30px;
 }
 header{
     display: flex;
@@ -47,6 +116,16 @@ header article {
 }
 header article img{
     width: 300px;
+}
+header a img{
+    width: 50px;
+}
+header a{
+    background-color: transparent;
+    border: none;
+}
+header a:hover{
+    cursor: pointer;
 }
 .desktop{
     width: 50%;
@@ -83,10 +162,10 @@ header article img{
     background-color: var(--primaria);
     text-decoration: underline;
 }
-main h1{
+.loginMain h1{
     font-size: 20px;
 }
-main form{
+.loginMain form{
     display: flex;
     text-align: center;
     flex-direction: column;
@@ -98,7 +177,7 @@ main form{
 #redefinicao{
     text-align: right;
 }
-main form input{
+.loginMain form input{
     border-radius: 10px;
     height: 20px;
     margin-top: 5px;
@@ -106,7 +185,7 @@ main form input{
     background-color: var(--cinza);
     padding: 10px;
 }
-main form input[type="submit"]{
+.loginMain form input[type="submit"]{
     background-color: var(--confirmar);
     border-radius: 30px;
     text-align: center;
@@ -115,18 +194,18 @@ main form input[type="submit"]{
     margin: 10px auto 0px;
     border: 2px solid var(--confirmar);
 }
-main form input[type="submit"]:hover{
+.loginMain form input[type="submit"]:hover{
     cursor: pointer;
     background-color: var(--primaria);
     color: white;
 }
-main article{
+.loginMain article{
     width: 50%;
     display: flex;
     align-items: center;
     justify-content: right;
 }
-main article img{
+.loginMain article img{
     width: 50%;
 }
 .geral{
@@ -156,33 +235,134 @@ ul{
 .closed{
     display: flex;
 }
+.erro{
+    padding: 10px;
+    background-color: #de7e76;
+    border: 3px #D63E35 solid;
+    border-radius: 30px;
+}
+.formPedido{
+    padding: 20px;
+    border-radius: 20px;
+    width: 40%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.formPedido input{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin-top: 10px;
+}
+.formPedido select{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin-top: 10px;
+}
+.mainNovoPed{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.formPedido input[type="submit"]{
+    background-color: var(--confirmar);
+    border-radius: 30px;
+    text-align: center;
+    width: 40%;
+    height: 10%;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin: 10px auto 0px;
+    border: 2px solid var(--confirmar);
+}
+.seta{
+    align-self: flex-start;
+    margin: 10px;
+}
+.title {
+    justify-self: center;
+}
+.formPedido input[type="submit"]:hover{
+    cursor: pointer;
+    background-color: #10458B;
+    color: white;
+}
+#pedFeito{
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    background-color: rgb(167, 235, 150);
+    border: #78C75C 3px solid;
+    border-radius: 20px;
+    padding: 20px;
+    transition: 3s;
+}
+.btnMenuPed{
+    background-color: var(--cinza);
+    border: none;
+}
+.btnMenuPed:disabled{
+    color: white;
+    background-color: var(--primaria);
+}
+.btnMenuPed:hover{
+    background-color: var(--secundaria);
+}
+.btnMenuPed:disabled:hover{
+    background-color: var(--primaria);
+}
+.MenuPed{
+    margin-bottom: 15px;
+}
 @media screen and (max-width: 1800px){
     header article img{
         width: 20vw;
     }
 }
+@media screen and (max-width: 951px) {
+    .divPedido{
+        justify-items: flex-start;
+    }
+    .divPedidos{
+        width: 80%;
+        flex-direction: column; 
+        justify-content: start;
+    }
+    .divPedidoTodos{
+        justify-items: flex-start;
+        width: 100%;
+    }
+    .divPedidosTodos{
+        width: 80%;
+    }
+}
 @media screen and (max-width: 800px) {
-    main{
+    .loginMain{
         flex-direction: column;
         width: 80%;
         border-radius: 30px;
     }
-    main article{
+    .loginMain article{
         width: 100%;
         justify-content: center;
         padding: 30px;
         padding-bottom: 0;
     }
-    main article img{
+    .loginMain article img{
         width: 100%;
     }
     .geral{
         justify-content: center;
     }
-    main h1{
+    .loginMain h1{
         margin-top: 0;
     }
-    main form{
+    .loginMain form{
         margin-left: 0;
     }
     header article img{

@@ -8,18 +8,24 @@
 </head>
 <body>
     <div class="geral">
-        <main>
+        <main class="loginMain">
             <article>
                 <img src="https://fortes.ind.br/wp-content/uploads/2022/08/FORTES_LOGOMARCA_moldura-e1660776738611.png" alt="Fortes Engenharia">
             </article>
-            <form>
+            <form action="/authReg" method="post">
                 <h1>Cadastro</h1>
-                <input type="text" placeholder="Nome">
-                <input type="text" placeholder="ID">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Senha">
+                <input name="nome" id="nome" type="text" required placeholder="Nome">
+                <input name="id" id="id" type="text" required placeholder="ID">
+                <input name="email" id="email" type="email" required placeholder="Email">
+                <input name="senha" id="senha" type="password" required placeholder="Senha">
                 <input type="submit">
                 <p>Já tem uma conta? <a href="/login">Fazer Login</a></p>
+            {{#if erro}}
+                <h4 class="erro">ID de colaborador já registrado</h4>
+            {{/if}}
+            {{#if erro1}}
+                <h4 class="erro">Todos os campos devem ser preenchidos</h4>
+            {{/if}}
             </form>
         </main>
     </div>

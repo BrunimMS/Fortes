@@ -12,24 +12,37 @@
         <article>
             <img src="https://fortes.ind.br/wp-content/uploads/2022/08/FORTES_LOGOMARCA_moldura-e1660776738611.png" alt="Fortes Engenharia">
         </article>
-        <div class="btnMenu">
-            <button onclick="menu()">
-                <img src="https://cdn-icons-png.flaticon.com/512/2311/2311531.png" alt="Menu" width="50px">
-            </button>
-        </div>
-        <ul class="desktop" id="menu">
-            <div id="menuItens" class="closed">
-                <a href="/"><li>Meus Pedidos</li></a>
-                <a href="/novoPedido" class="estado"><li>Novo Pedido</li></a>
-                <a href="/login"><li>Logout</li></a>
-            </div>
-        </ul>
-        <!-- <ul class="phone" id="menu">
-            <div id="menuItens">
-                <a href="index.html" class="estado"><li>Meus Pedidos</li></a>
-                <a href="novoPedido.html"><li>Novo Pedido</li></a>
-            </div>
-         </ul> -->
+        <a href="/logout">
+            <img src="https://cdn.icon-icons.com/icons2/2518/PNG/512/logout_icon_151219.png" alt="Logout">
+        </a>
     </header>
+    <main class="mainNovoPed">
+            <a href="/" class="seta"><img src="https://cdn-icons-png.flaticon.com/512/3031/3031716.png" alt="" style="transform: scaleX(-1); width: 50px;"></a>
+            <h1>Novo Pedido</h1>
+        <form action="/new" method="post" class="formPedido">
+            <select name="obra" id="obra" onchange="show1()">
+                <option value="" selected disabled>Selecione a obra</option>
+                {{#each obra}}
+                <option value="{{this.id_obra}}">{{this.endereco}}</option>
+                {{/each}}
+            </select>
+            <input name="date" id="date" type="date" onchange="show2()" min="{{date}}" hidden>
+            <div id="checks" hidden>
+                <div>
+                    <input type="checkbox" name="cafe" id="cafe">
+                    <label for="cafe">Café da Manhã</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="almoco" id="almoco">
+                    <label for="almoco">Almoço</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="jantar" id="jantar">
+                    <label for="jantar">Jantar</label>
+                </div>
+                <input type="submit">
+            </div>
+        </form>
+    </main>
 </body>
 </html>
